@@ -5,7 +5,7 @@ export interface PlainButtonProps {
   /** ID for the element */
   id?: string;
   /** Button label*/
-  label: string[];
+  label: string;
   /** Handler for click event */
   handleClick(): void;
 }
