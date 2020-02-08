@@ -1,0 +1,44 @@
+{
+  "name": "module-creator",
+  "version": "1.0.0",
+  "description": "flipp's module creator ui",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build ./src/index.html",
+    "clean": "rm -rf .cache dist",
+    "dev:start": "parcel ./src/index.html -p 5001",
+    "rebuild": "npm run clean && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christinetg/module-creator.git"
+  },
+  "author": "christine taing",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/christinetg/module-creator/issues"
+  },
+  "homepage": "https://github.com/christinetg/module-creator#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "babel-core": "^6.26.3",
+    "babel-preset-stage-0": "^6.24.1",
+    "parcel-bundler": "^1.12.3",
+    "typescript": "^3.6.2"
+  },
+  "dependencies": {
+    "@types/chrome": "0.0.88",
+    "@types/classnames": "^2.2.9",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.8.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-icons": "^3.9.0",
+    "react-svg": "^10.0.20",
+    "sass": "^1.22.9",
+    "ts-node": "^8.3.0"
+  }
+}
