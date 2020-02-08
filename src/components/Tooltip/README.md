@@ -1,6 +1,6 @@
 ## Tooltip
 
-#### Example
+### Example
 ```javascript
 <TooltipOverlay
   tooltip="Command"                  // tooltip text 
