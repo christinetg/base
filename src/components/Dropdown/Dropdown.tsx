@@ -39,7 +39,7 @@ const Dropdown = (props: DropdownProps) => {
     setFocus(!focus);
   };
 
-  const select = (e: React.MouseEvent<HTMLElement>) => {
+  const selectHandler = (e: React.MouseEvent<HTMLElement>) => {
     // @ts-ignore
     ctx.innerHTML = e.target.id;
     setExpand(false);
@@ -51,7 +51,7 @@ const Dropdown = (props: DropdownProps) => {
 
   const opts = options.map((opt: string) => {
     return (
-      <li key={opt} id={opt} onClick={select}>
+      <li key={opt} id={opt} onClick={selectHandler}>
         {opt}
       </li>
     );
