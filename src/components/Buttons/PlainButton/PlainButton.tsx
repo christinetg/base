@@ -10,7 +10,7 @@ export interface PlainButtonProps {
   handleClick(): void;
 }
 
-const PlainButton = (props: any) => {
+const PlainButton = (props: PlainButtonProps) => {
   const { id, label, handleClick } = props;
   return (
     <div className="PlainButton">
