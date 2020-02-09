@@ -1,5 +1,5 @@
 {
-  "name": "module-creator",
+  "name": "base",
   "version": "1.0.0",
   "description": "flipp's module creator ui",
   "main": "index.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/christinetg/module-creator.git"
+    "url": "git+https://github.com/christinetg/base.git"
   },
   "author": "christine taing",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/christinetg/module-creator/issues"
+    "url": "https://github.com/christinetg/base/issues"
   },
-  "homepage": "https://github.com/christinetg/module-creator#readme",
+  "homepage": "https://github.com/christinetg/base#readme",
   "devDependencies": {
     "autoprefixer": "^9.6.1",
     "babel-core": "^6.26.3",
