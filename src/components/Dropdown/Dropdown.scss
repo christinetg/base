@@ -9,6 +9,11 @@
   font-family: 'Source Code Pro', monospace;
   color: #1f0d39;
 
+  :root {
+    --dropdown-focus: #1f0d39;
+    --dropdown-hover: #ebeaed;
+  }
+
   .selector {
     padding: 0.5rem;
     width: 100%;
@@ -19,11 +24,11 @@
   }
 
   .focus {
-    border: 1px solid #ebeaed;
+    border: 1px solid var(--dropdown-focus);
   }
 
   .focus + .caret {
-    color: #1f0d39;
+    color: var(--dropdown-focus);
   }
 
   ul {
@@ -56,6 +61,6 @@
   }
 
   li:hover {
-    background-color: rgba(#ebeaed, 0.6);
+    background-color: var(--dropdown-hover)
   }
 }

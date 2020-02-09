@@ -11,13 +11,17 @@ export interface DropdownProps {
   dft?: string;
   /** Handler for when an option is select */
   handleSelect(): void;
+  /* Focus color style */
+  focusColor?: string;
+  /* Drop down option hover color */
+  hoverColor?: string;
 }
 
 const FOCUS_STYLE = 'selector focus';
 const UNFOCUS_STYLE = 'selector';
 
 const Dropdown = (props: DropdownProps) => {
-  const { id, options, dft, handleSelect } = props;
+  const { id, options, dft, handleSelect, focusColor = '#1f0d39', hoverColor = '#ebeaed' } = props;
 
   const [focus, setFocus] = useState(false);
   const [ctx, setContext] = useState();
@@ -42,12 +46,12 @@ const Dropdown = (props: DropdownProps) => {
   const selectHandler = (e: React.MouseEvent<HTMLElement>) => {
     // @ts-ignore
     ctx.innerHTML = e.target.id;
-    setExpand(false);
-    setFocus(true);
-    setStyle(UNFOCUS_STYLE);
-    toggleFocus();
     handleSelect();
+    toggleFocus();
   };
+
+  document.documentElement.style.setProperty('--dropdown-focus', focusColor);
+  document.documentElement.style.setProperty('--dropdown-hover', hoverColor);
 
   const opts = options.map((opt: string) => {
     return (
