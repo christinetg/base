@@ -25,7 +25,13 @@
     "babel-core": "^6.26.3",
     "babel-preset-stage-0": "^6.24.1",
     "parcel-bundler": "^1.12.3",
-    "typescript": "^3.6.2"
+    "typescript": "^3.6.2",
+    "tslint": "^6.0.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^9.0.0",
+    "tslint-plugin-prettier": "^2.1.0",
+    "tslint-react": "^4.2.0",
+    "prettier": "^1.19.1"
   },
   "dependencies": {
     "@types/chrome": "0.0.88",

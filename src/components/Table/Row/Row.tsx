@@ -5,11 +5,11 @@ export interface RowProps {
   /** ID for the element */
   id?: string;
   /** Data for row */
-  rowData: Object;
+  rowData: any;
   /** Column widths */
   columnWidths: number[];
-  //** Row style */
-  cellStyles?: Object;
+  // ** Row style */
+  cellStyles?: { [key: string]: string };
 }
 
 const isJSON = (el: any) => {
@@ -20,7 +20,7 @@ const isJSON = (el: any) => {
     return false;
   }
 };
-
+console.log('heelo');
 const Row = (props: RowProps) => {
   const { id, rowData, columnWidths, cellStyles = {} } = props;
   // @ts-ignore
@@ -33,7 +33,7 @@ const Row = (props: RowProps) => {
         <pre>{JSON.stringify(cellValue, null, 4)}</pre>
       </td>
     ) : (
-      //@ts-ignore
+      // @ts-ignore
       <td width={`${columnWidths[i]}`} style={cellStyles}>
         {cellValue}
       </td>
