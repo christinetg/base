@@ -20,7 +20,7 @@ const isJSON = (el: any) => {
     return false;
   }
 };
-console.log('heelo');
+
 const Row = (props: RowProps) => {
   const { id, rowData, columnWidths, cellStyles = {} } = props;
   // @ts-ignore
