@@ -6,7 +6,7 @@
   "scripts": {
     "build": "parcel build ./src/index.html",
     "clean": "rm -rf .cache dist",
-    "dev:start": "parcel ./src/index.html -p 5001",
+    "dev:start": "parcel ./src/app/index.html -p 5001",
     "rebuild": "npm run clean && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
