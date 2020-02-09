@@ -3,13 +3,13 @@ import { FiChevronUp, FiChevronDown } from 'react-icons/fi';
 import './Dropdown.scss';
 
 export interface DropdownProps {
-  /** ID for the element */
+  /* ID for the element */
   id?: string;
-  /** List of options for Dropdown */
+  /* List of options for Dropdown */
   options: string[];
-  /** Default option */
+  /* Default option */
   dft?: string;
-  /** Handler for when an option is select */
+  /* Handler for when an option is select */
   handleSelect(): void;
   /* Focus color style */
   focusColor?: string;
@@ -22,6 +22,9 @@ const UNFOCUS_STYLE = 'selector';
 
 const Dropdown = (props: DropdownProps) => {
   const { id, options, dft = '-', handleSelect, focusColor = '#1f0d39', hoverColor = '#ebeaed' } = props;
+
+  document.documentElement.style.setProperty('--dropdown-focus', focusColor);
+  document.documentElement.style.setProperty('--dropdown-hover', hoverColor);
 
   const [focus, setFocus] = useState(false);
   const [ctx, setContext] = useState();
@@ -49,9 +52,6 @@ const Dropdown = (props: DropdownProps) => {
     handleSelect();
     toggleFocus();
   };
-
-  document.documentElement.style.setProperty('--dropdown-focus', focusColor);
-  document.documentElement.style.setProperty('--dropdown-hover', hoverColor);
 
   const opts = options.map((opt: string) => {
     return (
