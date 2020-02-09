@@ -21,7 +21,7 @@ const FOCUS_STYLE = 'selector focus';
 const UNFOCUS_STYLE = 'selector';
 
 const Dropdown = (props: DropdownProps) => {
-  const { id, options, dft, handleSelect, focusColor = '#1f0d39', hoverColor = '#ebeaed' } = props;
+  const { id, options, dft = '-', handleSelect, focusColor = '#1f0d39', hoverColor = '#ebeaed' } = props;
 
   const [focus, setFocus] = useState(false);
   const [ctx, setContext] = useState();
@@ -64,7 +64,7 @@ const Dropdown = (props: DropdownProps) => {
   return (
     <div className="dropdown">
       <div id={`${id}-dropdown`} className={style} onClick={toggleFocus}>
-        {dft ? dft : '-'}
+        {dft}
       </div>
       {expand ? <FiChevronUp className="caret" /> : <FiChevronDown className="caret" />}
       {expand ? <ul>{opts}</ul> : null}
