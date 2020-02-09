@@ -8,4 +8,5 @@ React Components
 [Table](./src/components/Table)
 [PlainButton](./src/components/Buttons/PlainButton)
 [Tooltip](./src/components/Tooltip)  
+[RadioButton](./src/components/Buttons/RadioButton)  
 

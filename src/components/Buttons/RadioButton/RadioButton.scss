@@ -1,0 +1,60 @@
+.RadioButton {
+    :root {
+      --bgColor: #ebeaed;
+      --activeBgColor: #1f0d39;
+    }
+
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1rem;
+  
+  
+  input[type="radio"]{
+    display: none;
+  }
+
+  label {
+    position: relative;
+    cursor: pointer;
+    font-weight: bold;
+    padding-right: 32px;
+  }
+
+  label::before {
+    content: "";
+    background-color: var(--bgColor);
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: -5px 20px;
+    margin-left: 0;
+    border-radius: 50%;
+    transition: all 0.2s;
+  }
+
+  label::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    background-color: white;
+    width: 15px;
+    height: 15px;
+    left: 2px;
+    top: 8px;
+    margin: -5px 20px;
+    margin-left: 0;
+    border-radius: 50%;
+  
+    transition: all 0.25s;
+  }
+  
+  input[type="radio"]:checked + label::after {
+    transform: scale(0.5);
+  }
+
+  input[type="radio"]:checked ~ label::before, input[type="radio"]:hover ~ label::before {
+    background-color: var(--activeBgColor);
+  }
+
+}
