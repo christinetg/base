@@ -1,7 +1,6 @@
 # base
 
-Challenge 💪 : Build at least one well-designed React component every other day <br>
-
+Started this to practice fun stuffs 🤓
 
 React Components    
 :-------------------------: 
