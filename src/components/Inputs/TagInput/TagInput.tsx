@@ -7,34 +7,44 @@ export interface TagInputProps {
 }
 
 const TagInput = (props: TagInputProps) => {
-  const focusInput = () => document.getElementById('input-div').focus();
-
-  const appendTag = () => {
-    const tagWrapper = document.getElementById('tag-wrapper');
-    const tagInput = document.getElementById('input-div');
-    const lastChild = tagWrapper.lastChild;
-    const tag = createTag(lastChild.innerHTML);
-    tagWrapper.appendChild(tag);
-    tagWrapper.appendChild(lastChild);
-    tagInput.innerHTML = '';
-    focusInput();
-  };
-
-  const handleOnInput = (e: any) => {
-    if (e.which === 13) {
-      e.preventDefault();
-      appendTag();
-    }
-  };
+  const focusInput = () => document.getElementById('tag-input').focus();
 
   const handleDelete = (e: React.MouseEvent<HTMLElement>) => {
     document.getElementById('tag-wrapper').removeChild(e.target.parentNode);
     focusInput();
   };
 
+  const createTag = (content: string): HTMLElement => {
+    const tag = constructHTMLElement('div', 'tag');
+    const tagContent = constructHTMLElement('span', null, content);
+    const tagDeleteButton = constructHTMLElement('span', 'tag-delete-button', 'x');
+    tagDeleteButton.addEventListener('click', (e: React.MouseEvent<HTMLElement>) => handleDelete(e));
+    tag.appendChild(tagContent);
+    tag.appendChild(tagDeleteButton);
+    return tag;
+  };
+
+  const appendTag = () => {
+    const tagWrapper = document.getElementById('tag-wrapper');
+    const tagInput = document.getElementById('tag-input');
+    const lastChild = tagWrapper.lastChild;
+    const tag = createTag(lastChild.innerHTML);
+    tagWrapper.appendChild(tag);
+    tagWrapper.appendChild(lastChild);
+    tagInput.innerHTML = '';
+  };
+
+  const handleOnInput = (e: any) => {
+    if (e.which === 13) {
+      e.preventDefault();
+      appendTag();
+      focusInput();
+    }
+  };
+
   useEffect(
     () =>
-      document.getElementById('input-div').addEventListener('keypress', (e: React.KeyboardEvent) => handleOnInput(e)),
+      document.getElementById('tag-input').addEventListener('keypress', (e: React.KeyboardEvent) => handleOnInput(e)),
     [],
   );
 
@@ -42,20 +52,10 @@ const TagInput = (props: TagInputProps) => {
     document.getElementById('tag-wrapper').addEventListener('click', () => focusInput());
   }, []);
 
-  const createTag = (content: string): HTMLElement => {
-    const tag = constructHTMLElement('div', 'tag');
-    const tagContent = constructHTMLElement('span', null, content);
-    const tagDeleteButton = constructHTMLElement('span', 'delete-button', 'x');
-    tagDeleteButton.addEventListener('click', (e: React.MouseEvent<HTMLElement>) => handleDelete(e));
-    tag.appendChild(tagContent);
-    tag.appendChild(tagDeleteButton);
-    return tag;
-  };
-
   return (
     <div className="TagInput">
       <div id="tag-wrapper" className="tag-input-wrapper">
-        <div id="input-div" contentEditable="true" />
+        <div id="tag-input" contentEditable="true" />
       </div>
     </div>
   );
