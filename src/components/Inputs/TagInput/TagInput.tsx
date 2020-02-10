@@ -24,7 +24,7 @@ const TagInput = (props: TagInputProps) => {
     focusInput();
   };
 
-  const createTag = (content: string): HTMLElement => {
+  const createNewTag = (content: string): HTMLElement => {
     const tag = constructHTMLElement('div', 'tag');
     const tagContent = constructHTMLElement('span', null, content);
     const tagDeleteButton = constructHTMLElement('span', 'tag-delete-button', 'x');
@@ -38,7 +38,7 @@ const TagInput = (props: TagInputProps) => {
     const tagWrapper = document.getElementById('tag-wrapper');
     const tagInput = document.getElementById('tag-input');
     const lastChild = tagWrapper.lastChild;
-    const newTag = createTag(lastChild.innerHTML);
+    const newTag = createNewTag(lastChild.innerHTML);
     tagWrapper.appendChild(newTag);
     tagWrapper.appendChild(lastChild);
     tagInput.innerHTML = '';
