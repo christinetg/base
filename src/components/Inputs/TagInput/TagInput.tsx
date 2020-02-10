@@ -26,17 +26,20 @@ export interface TagInputProps {
   tagRLPadding?: number;
   /* Tag top and bottom padding */
   tagTBPadding?: number;
+  /* Tag font family  */
+  fontFamily?: string;
 }
 
 const TagInput = (props: TagInputProps) => {
   const {
     id,
-    tagBgColor = '#ebeaed',
+    tagBgColor = '#F0F6F9',
     color = '#1f0d39',
     fontSize = 0.8,
     width = 20,
-    tagRLPadding = 0.7,
-    tagTBPadding = 0.6,
+    tagRLPadding = 0.6,
+    tagTBPadding = 0.5,
+    fontFamily = "'Source Code Pro', monospace",
   } = props;
 
   const focusInput = () => document.getElementById('tag-input').focus();
@@ -52,7 +55,6 @@ const TagInput = (props: TagInputProps) => {
     tagDeleteButton.addEventListener('click', (e: React.MouseEvent<HTMLElement>) => handleDelete(e));
     tag.appendChild(tagContent);
     tag.appendChild(tagDeleteButton);
-    focusInput();
     return tag;
   };
 
@@ -64,6 +66,7 @@ const TagInput = (props: TagInputProps) => {
     tagWrapper.appendChild(newTag);
     tagWrapper.appendChild(lastChild);
     tagInput.innerHTML = '';
+    focusInput();
   };
 
   const handleOnInput = (e: any) => {
@@ -83,7 +86,7 @@ const TagInput = (props: TagInputProps) => {
   }, []);
 
   const tagInputStyles = { maxWidth: `${width - 2}rem` };
-  const tagWrapperStyles = { fontSize: `${fontSize}rem`, color, width: `${width}rem` };
+  const tagWrapperStyles = { fontSize: `${fontSize}rem`, color, width: `${width}rem`, fontFamily };
   document.documentElement.style.setProperty('--tagBgColor', tagBgColor);
   document.documentElement.style.setProperty('--tagPadding', `${tagTBPadding}rem ${tagRLPadding}rem`);
 
