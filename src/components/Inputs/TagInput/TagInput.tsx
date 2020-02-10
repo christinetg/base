@@ -12,11 +12,33 @@ const applyClassName = (node: HTMLElement, className: string) => node.classList.
 const applyInnerHTML = (node: HTMLElement, innerHTML: string) => (node.innerHTML = innerHTML);
 
 export interface TagInputProps {
-  /** ID for the element */
+  /* ID for the element */
   id?: string;
+  /* Tag background color */
+  tagBgColor?: string;
+  /* Tag font color */
+  color?: string;
+  /* Tag font size */
+  fontSize?: number;
+  /* Input width */
+  width?: number;
+  /* Tag left and right padding */
+  tagRLPadding?: number;
+  /* Tag top and bottom padding */
+  tagTBPadding?: number;
 }
 
 const TagInput = (props: TagInputProps) => {
+  const {
+    id,
+    tagBgColor = '#ebeaed',
+    color = '#1f0d39',
+    fontSize = 0.8,
+    width = 20,
+    tagRLPadding = 0.7,
+    tagTBPadding = 0.6,
+  } = props;
+
   const focusInput = () => document.getElementById('tag-input').focus();
 
   const handleDelete = (e: React.MouseEvent<HTMLElement>) => {
@@ -60,10 +82,15 @@ const TagInput = (props: TagInputProps) => {
     document.getElementById('tag-wrapper').addEventListener('click', focusInput);
   }, []);
 
+  const tagInputStyles = { maxWidth: `${width - 2}rem` };
+  const tagWrapperStyles = { fontSize: `${fontSize}rem`, color, width: `${width}rem` };
+  document.documentElement.style.setProperty('--tagBgColor', tagBgColor);
+  document.documentElement.style.setProperty('--tagPadding', `${tagTBPadding}rem ${tagRLPadding}rem`);
+
   return (
-    <div className="TagInput">
-      <div id="tag-wrapper" className="tag-input-wrapper">
-        <div id="tag-input" contentEditable="true" />
+    <div id={id} className="TagInput">
+      <div id="tag-wrapper" className="tag-input-wrapper" style={tagWrapperStyles}>
+        <div id="tag-input" contentEditable="true" style={tagInputStyles} />
       </div>
     </div>
   );
