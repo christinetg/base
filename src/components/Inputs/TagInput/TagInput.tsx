@@ -1,6 +1,16 @@
 import React, { useEffect } from 'react';
 import './TagInput.scss';
 
+const constructHTMLElement = (type: string, className?: string, innerHtml?: string): HTMLElement => {
+  const element = document.createElement(type);
+  if (className) applyClassName(element, className);
+  if (innerHtml) applyInnerHTML(element, innerHtml);
+  return element;
+};
+
+const applyClassName = (node: HTMLElement, className: string) => node.classList.add(className);
+const applyInnerHTML = (node: HTMLElement, innerHTML: string) => (node.innerHTML = innerHTML);
+
 export interface TagInputProps {
   /** ID for the element */
   id?: string;
@@ -24,12 +34,12 @@ const TagInput = (props: TagInputProps) => {
     return tag;
   };
 
-  const appendTag = () => {
+  const appendNewTag = () => {
     const tagWrapper = document.getElementById('tag-wrapper');
     const tagInput = document.getElementById('tag-input');
     const lastChild = tagWrapper.lastChild;
-    const tag = createTag(lastChild.innerHTML);
-    tagWrapper.appendChild(tag);
+    const newTag = createTag(lastChild.innerHTML);
+    tagWrapper.appendChild(newTag);
     tagWrapper.appendChild(lastChild);
     tagInput.innerHTML = '';
   };
@@ -37,7 +47,7 @@ const TagInput = (props: TagInputProps) => {
   const handleOnInput = (e: any) => {
     if (e.which === 13) {
       e.preventDefault();
-      appendTag();
+      appendNewTag();
       focusInput();
     }
   };
@@ -62,13 +72,3 @@ const TagInput = (props: TagInputProps) => {
 };
 
 export default TagInput;
-
-const constructHTMLElement = (type: string, className?: string, innerHtml?: string): HTMLElement => {
-  const element = document.createElement(type);
-  if (className) applyClassName(element, className);
-  if (innerHtml) applyInnerHTML(element, innerHtml);
-  return element;
-};
-
-const applyClassName = (node: HTMLElement, className: string) => node.classList.add(className);
-const applyInnerHTML = (node: HTMLElement, innerHTML: string) => (node.innerHTML = innerHTML);
