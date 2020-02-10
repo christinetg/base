@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import './TagInput.scss';
 
 const constructHTMLElement = (type: string, className?: string, innerHtml?: string): HTMLElement => {
@@ -19,18 +19,18 @@ export interface TagInputProps {
 const TagInput = (props: TagInputProps) => {
   const focusInput = () => document.getElementById('tag-input').focus();
 
-  const handleDelete = (e: React.MouseEvent<HTMLElement>) => {
+  const handleDelete = useCallback((e: React.MouseEvent<HTMLElement>) => {
     document.getElementById('tag-wrapper').removeChild(e.target.parentNode);
-    focusInput();
-  };
+  }, []);
 
-  const createNewTag = (content: string): HTMLElement => {
+  const createNewTag = (content: string): any => {
     const tag = constructHTMLElement('div', 'tag');
     const tagContent = constructHTMLElement('span', null, content);
     const tagDeleteButton = constructHTMLElement('span', 'tag-delete-button', 'x');
     tagDeleteButton.addEventListener('click', (e: React.MouseEvent<HTMLElement>) => handleDelete(e));
     tag.appendChild(tagContent);
     tag.appendChild(tagDeleteButton);
+    focusInput();
     return tag;
   };
 
@@ -52,14 +52,12 @@ const TagInput = (props: TagInputProps) => {
     }
   };
 
-  useEffect(
-    () =>
-      document.getElementById('tag-input').addEventListener('keypress', (e: React.KeyboardEvent) => handleOnInput(e)),
-    [],
-  );
+  useEffect(() => {
+    document.getElementById('tag-input').addEventListener('keypress', (e: React.KeyboardEvent) => handleOnInput(e));
+  }, []);
 
   useEffect(() => {
-    document.getElementById('tag-wrapper').addEventListener('click', () => focusInput());
+    document.getElementById('tag-wrapper').addEventListener('click', focusInput);
   }, []);
 
   return (
