@@ -1,6 +1,6 @@
 # base
 
-Started this to practice fun stuffs 🤓
+Started this to practice fun stuffs 🎢. Here is my growing little design system. 🤓.
 
 React Components    
 :-------------------------: 
