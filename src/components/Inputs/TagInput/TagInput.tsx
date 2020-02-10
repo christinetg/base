@@ -22,7 +22,7 @@ export interface TagInputProps {
   fontSize?: number;
   /* Input width */
   width?: number;
-  /* Tag left and right padding */
+  /* Tag right and left padding */
   tagRLPadding?: number;
   /* Tag top and bottom padding */
   tagTBPadding?: number;
@@ -66,7 +66,6 @@ const TagInput = (props: TagInputProps) => {
     tagWrapper.appendChild(newTag);
     tagWrapper.appendChild(lastChild);
     tagInput.innerHTML = '';
-    focusInput();
   };
 
   const handleOnInput = (e: any) => {
