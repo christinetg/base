@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import './TagInput.scss';
 
 const constructHTMLElement = (type: string, className?: string, innerHtml?: string): HTMLElement => {
@@ -19,9 +19,9 @@ export interface TagInputProps {
 const TagInput = (props: TagInputProps) => {
   const focusInput = () => document.getElementById('tag-input').focus();
 
-  const handleDelete = useCallback((e: React.MouseEvent<HTMLElement>) => {
+  const handleDelete = (e: React.MouseEvent<HTMLElement>) => {
     document.getElementById('tag-wrapper').removeChild(e.target.parentNode);
-  }, []);
+  };
 
   const createNewTag = (content: string): any => {
     const tag = constructHTMLElement('div', 'tag');
