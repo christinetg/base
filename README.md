@@ -6,7 +6,8 @@ React Components
 :-------------------------: 
 [Dropdown](./src/components/Dropdown)     
 [Table](./src/components/Table)
-[PlainButton](./src/components/Buttons/PlainButton)
+[Plain Button](./src/components/Buttons/PlainButton)
 [Tooltip](./src/components/Tooltip)  
-[RadioButton](./src/components/Buttons/RadioButton)  
+[Radio Button](./src/components/Buttons/RadioButton)  
+[Tag Input](./src/components/Inputs/TagInput)
 
