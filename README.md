@@ -1,5 +1,4 @@
 # base
-Design system I'm building for my projects 🤓
 
 React Components    
 :-------------------------: 
