@@ -33,7 +33,7 @@ const HorizontalProgressBar = (props: HorizontalProgressBarProps) => {
     progressBarBgColor = '#ebeaed',
     width = 5,
     height = 0.4,
-    progress = 39,
+    progress = 100,
     label,
     max = 100,
     fontFamily = "'Nunito', sans-serif",
