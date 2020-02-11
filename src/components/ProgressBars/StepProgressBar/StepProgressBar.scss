@@ -1,0 +1,57 @@
+.StepProgressBar {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+    .step-progress-bar {
+      display: inline-flex;
+      flex-direction: row;
+      font-family: 'Source Code Pro', monospace;
+      list-style: none;
+    }
+
+    li {
+      position:relative;
+      display: flex;
+      align-items: center;
+    }
+
+    li > span {
+      position: absolute;
+      top: 1.5rem;
+      right: 0rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--stepProgressBar-bgColor);;
+    }
+
+    .completed::before, .completed::after {
+      background: var(--stepProgressBar-color);
+    }
+
+    .completed > span {
+      color: var(--stepProgressBar-fontColor);
+    }
+
+    li::after {
+      content: '';
+      display: inline-block;
+      width:0.8rem;
+      height:0.8rem;
+      border-radius: 50%;
+      background-color: var(--stepProgressBar-bgColor);;
+    }
+
+    li::before {
+      content: '';
+      width: var(--stepProgressBar-rangeWidth);
+      height: 0.2rem;
+      background-color: var(--stepProgressBar-bgColor);
+      display: inline-block;
+      z-index: -1;
+    }
+
+    li::before:first-child {
+      border-radius: 1rem;
+    }
+}

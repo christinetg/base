@@ -9,4 +9,5 @@ React Components
 [Radio Button](./src/components/Buttons/RadioButton)  
 [Tag Input](./src/components/Inputs/TagInput)
 [Horizontal Progress Bar](./src/components/ProgressBars/HorizontalProgressBar)
+[Step Progress Bar](./src/components/ProgressBars/StepProgressBar)
 
