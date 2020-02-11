@@ -1,4 +1,4 @@
-.ProgressBar {
+.HorizontalProgressBar {
   text-align: right;
   display: inline-block;
 
@@ -9,11 +9,11 @@
     font-weight: 700;
   }
 
-  .progress-bar-wrapper {
+  .horizontal-progress-bar-wrapper {
     border-radius: 0.5rem;
   }
 
-  .progress-bar {
+  .horizontal-progress-bar {
     border-radius: inherit;
   }
 }

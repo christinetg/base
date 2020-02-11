@@ -53,10 +53,10 @@ const HorizontalProgressBar = (props: HorizontalProgressBarProps) => {
   const progressBarStyles = { background: progressBarColor, width: `${validatedProgress}%`, height: `${height}rem` };
 
   return (
-    <div className="ProgressBar" style={{ fontFamily, fontSize: `${fontSize}rem` }}>
+    <div className="HorizontalProgressBar" style={{ fontFamily, fontSize: `${fontSize}rem` }}>
       {progressLabel}
-      <div className="progress-bar-wrapper" style={progressBarWrapperStyles}>
-        <div id={id} className="progress-bar" style={progressBarStyles} />
+      <div className="horizontal-progress-bar-wrapper" style={progressBarWrapperStyles}>
+        <div id={id} className="horizontal-progress-bar" style={progressBarStyles} />
       </div>
     </div>
   );
