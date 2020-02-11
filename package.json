@@ -1,7 +1,7 @@
 {
   "name": "base",
   "version": "1.0.0",
-  "description": "My growing design system for my projects. Just having fun making react components thats all",
+  "description": "design system",
   "main": "index.js",
   "scripts": {
     "build": "parcel build ./src/index.html",
