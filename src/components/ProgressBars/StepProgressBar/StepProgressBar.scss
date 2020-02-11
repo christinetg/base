@@ -1,4 +1,6 @@
 .StepProgressBar {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
     .step-progress-bar {
       display: inline-flex;
@@ -20,19 +22,15 @@
       font-size: 0.65rem;
       font-weight: 700;
       text-transform: uppercase;
-      color: #ebeaed;
+      color: var(--stepProgressBar-bgColor);;
     }
 
-    .active::after {
-      background: #9A26FF;
+    .completed::before, .completed::after {
+      background: var(--stepProgressBar-color);
     }
 
-    .active::before {
-      background: #9A26FF;
-    }
-
-    .active > span {
-      color: #1f0d39;
+    .completed > span {
+      color: var(--stepProgressBar-fontColor);
     }
 
     li::after {
@@ -41,15 +39,14 @@
       width:0.8rem;
       height:0.8rem;
       border-radius: 50%;
-      // border: 3px solid #9A26FF;
-      background-color: #ebeaed;
+      background-color: var(--stepProgressBar-bgColor);;
     }
 
     li::before {
       content: '';
-      width: 5rem;
+      width: var(--stepProgressBar-rangeWidth);
       height: 0.2rem;
-      background-color: #ebeaed;
+      background-color: var(--stepProgressBar-bgColor);
       display: inline-block;
       z-index: -1;
     }
