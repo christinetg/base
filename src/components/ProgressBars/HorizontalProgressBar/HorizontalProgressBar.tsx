@@ -33,7 +33,7 @@ const HorizontalProgressBar = (props: HorizontalProgressBarProps) => {
     progressBarBgColor = '#ebeaed',
     width = 5,
     height = 0.4,
-    progress = 100,
+    progress = 39,
     label,
     max = 100,
     fontFamily = "'Nunito', sans-serif",
@@ -44,7 +44,7 @@ const HorizontalProgressBar = (props: HorizontalProgressBarProps) => {
   const validatedProgress = progress > 100 ? 100 : progress;
   const progressLabel = label ? (
     <label>
-      <span style={{ color }}>{(validatedProgress / 100) * max}</span>
+      <span style={{ color }}>{Math.ceil((validatedProgress / 100) * max)}</span>
       <span> / {max}</span>
     </label>
   ) : null;
