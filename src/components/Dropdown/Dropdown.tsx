@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { FiChevronUp, FiChevronDown } from 'react-icons/fi';
 import './Dropdown.scss';
 
@@ -33,7 +33,7 @@ const Dropdown = (props: DropdownProps) => {
 
   useEffect(() => {
     setContext(document.getElementById(`${id}-dropdown`));
-  });
+  }, []);
 
   const toggleFocus = () => {
     if (focus) {
