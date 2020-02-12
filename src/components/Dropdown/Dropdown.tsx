@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiChevronUp, FiChevronDown } from 'react-icons/fi';
 import './Dropdown.scss';
 
